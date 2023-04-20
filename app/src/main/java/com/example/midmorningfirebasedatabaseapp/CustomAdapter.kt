@@ -1,6 +1,7 @@
 package com.example.midmorningfirebasedatabaseapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,7 +54,12 @@ class CustomAdapter(var context: Context, var data:ArrayList<User>):BaseAdapter(
             }
         }
         viewHolder.btnUpdate.setOnClickListener {
-            
+            var intent = Intent(context, UsersupdateActivity::class.java)
+            intent.putExtra("name", item.name)
+            intent.putExtra("email", item.email)
+            intent.putExtra("idNumber", item.idNumber)
+            intent.putExtra("id", item.id)
+            context.startActivity(intent)
         }
         return view as View
     }
